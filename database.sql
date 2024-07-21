@@ -5,10 +5,10 @@ CREATE TABLE images(
     album_name TEXT NOT NULL,
     image_number INTEGER,
     date DATE,
-    url TEXT NOT NULL
- 
+    url TEXT NOT NULL,
+    front BOOLEAN DEFAULT FALSE NOT NULL
 );
-
+    
 -- Function to auto increment image_number if album_name is the same
 CREATE OR REPLACE FUNCTION update_image_number() 
 RETURNS TRIGGER AS $$
