@@ -10,12 +10,12 @@ app.use(express.json())
 //ROUTES
 
 //add a photo
-app.post("", async (req, res) => {
+app.post("/upload", async (req, res) => {
   try {
-    const { album_name, image_number, date, url } = req.body
+    const { album_name, image_number, date, url, front } = req.body
     const newImage = await pool.query(
-      "INSERT INTO images (album_name, image_number, date, url) VALUES ($1,$2,$3,$4) RETURNING *",
-      [album_name, image_number, date, url]
+      "INSERT INTO images (album_name, image_number, date, url, front) VALUES ($1,$2,$3,$4, $5) RETURNING *",
+      [album_name, image_number, date, url, front]
     )
     res.json(newImage)
   } catch (error) {
