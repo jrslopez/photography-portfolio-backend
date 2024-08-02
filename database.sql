@@ -8,6 +8,12 @@ CREATE TABLE images(
     url TEXT NOT NULL,
     front BOOLEAN DEFAULT FALSE NOT NULL
 );
+
+CREATE TABLE login(
+    id SERIAL PRIMARY KEY,
+    username TEXT NOT NULL,
+    password TEXT NOT NULL
+);
     
 -- Function to auto increment image_number if album_name is the same
 CREATE OR REPLACE FUNCTION update_image_number() 
