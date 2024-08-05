@@ -33,6 +33,20 @@ app.get("", async (req, res) => {
   }
 })
 
+//login
+
+app.post("/login", async (req, res) => {
+  try {
+    const { username, password } = req.body
+    if (username === "admin" && password === "1234") {
+      console.log("login successful!")
+    } else console.log("wrong user/pw")
+    res.json()
+  } catch (error) {
+    console.error(error.message)
+  }
+})
+
 app.listen(4000, () => {
   console.log("server started on port 4000!")
 })
